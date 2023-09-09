@@ -1,7 +1,24 @@
-<fieldset
+<div
   class="text-input-fieldset"
   data-testid="node/input/{{attributes.name}}">
-  <label>
+  <label for={{attributes.name}} class="block text-sm font-medium leading-6 text-gray-900">
+    {{getNodeLabel .}}
+    {{#if attributes.required}}
+      <span class="required">*</span>
+    {{/if}}
+  </label>
+  <div class="mt-2">
+    <input
+      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      id="{{attributes.name}}"
+      name="{{attributes.name}}"
+      type="{{attributes.type}}"
+      value="{{attributes.value}}"
+      placeholder="{{getNodeLabel .}}"
+      {{#if attributes.disabled}}disabled{{/if}}
+    />
+  </div>
+  {{!-- <label>
     <span class="typography-h3">{{getNodeLabel .}}{{#if attributes.required}}
       <span class="required">*</span>{{/if}}
     </span>
@@ -13,10 +30,10 @@
       placeholder="{{getNodeLabel .}}"
       {{#if attributes.disabled}}disabled{{/if}}
     />
-  </label>
+  </label> --}}
   {{#if messages}}
     <div class="typography-caption">
       {{> messages }}
     </div>
   {{/if}}
-</fieldset>
+</div>
