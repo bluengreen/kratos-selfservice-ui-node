@@ -1,15 +1,15 @@
 <html lang="en">
   <head>
     {{> standard_headers}}
-    <link type="text/css" rel='stylesheet' href="auth-layout.css" />
+    {{!-- <link type="text/css" rel='stylesheet' href="auth-layout.css" /> --}}
   </head>
   <body>
     <main data-testid="app-express">
-      <div class="auth-container spacing-16">
+      <div class="mt-10 mx-auto sm:w-full sm:max-w-[480px]">
         {{{body}}}
-        {{!-- {{> ory_branding}} --}}
       </div>
- 
+      {{!-- {{> ory_branding}} --}}
+  
     {{> scripts }}
     </main>
   </body>

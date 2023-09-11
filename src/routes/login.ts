@@ -169,6 +169,7 @@ export const createLoginRoute: RouteCreator =
 
         res.render("login", {
           nodes: flow.ui.nodes,
+          title: "Sign in",
           webAuthnHandler: filterNodesByGroups({
             nodes: flow.ui.nodes,
             groups: ["webauthn"],
@@ -182,20 +183,22 @@ export const createLoginRoute: RouteCreator =
             })
             .filter((c) => c !== undefined),
           card: UserAuthCard({
-            title: flow.refresh
-              ? "Confirm it's you"
-              : flow.requested_aal === "aal2"
-              ? "Two-Factor Authentication"
-              : "Sign In",
-            ...(flow.oauth2_login_request && {
-              subtitle: `To authenticate ${
-                flow.oauth2_login_request.client?.client_name ||
-                flow.oauth2_login_request.client?.client_id
-              }`,
-            }),
+            // title: flow.refresh
+            //   ? "Confirm it's you"
+            //   : flow.requested_aal === "aal2"
+            //   ? "Two-Factor Authentication"
+            //   : "Sign In",
+            // ...(flow.oauth2_login_request && {
+            //   subtitle: `To authenticate ${
+            //     flow.oauth2_login_request.client?.client_name ||
+            //     flow.oauth2_login_request.client?.client_id
+            //   }`,
+            // }),
             flow: flow,
             flowType: "login",
-            cardImage: logoUrl,
+            // cardImage:
+            //   "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600",
+            className: "ory-idp",
             additionalProps: {
               forgotPasswordURL: initRecoveryUrl,
               signupURL: initRegistrationUrl,

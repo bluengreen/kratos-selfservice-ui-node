@@ -58,11 +58,13 @@ export const createVerificationRoute: RouteCreator =
 
           // Render the data using a view (e.g. Jade Template):
           res.render("verification", {
+            title: "Verify your account",
             card: UserAuthCard({
               title: "Verify your account",
               flow: flow,
               flowType: "verification",
               cardImage: logoUrl,
+              className: "ory-idp",
               additionalProps: {
                 signupURL: initRegistrationUrl,
               },

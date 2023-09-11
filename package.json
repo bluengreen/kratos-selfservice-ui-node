@@ -18,17 +18,22 @@
     "views/*"
   ],
   "scripts": {
-    "build": "rm -rf lib/* && tsc",
+    "build": "rm -rf lib/* && tsc && npm run build:css",
+    "build:css": "postcss src/global.css -o public/styles/global.css",
     "serve": "node lib/index.js",
     "start": "nodemon",
     "test": "exit 0",
+    "format": "prettier --write src/**/*.ts",
+    "release": "standard-version -a && git push --follow-tags origin master",
     "format:check": "prettier --check .",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@ory/client": "1.1.50",
     "@ory/elements-markup": "0.1.0-beta.1",
     "@ory/integrations": "1.1.4",
+    "@tailwindcss/forms": "^0.5.6",
+    "autoprefixer": "^10.4.15",
     "axios": "1.2.6",
     "body-parser": "1.20.2",
     "cookie-parser": "1.4.6",
@@ -38,6 +43,9 @@
     "express-jwt": "8.4.1",
     "express-winston": "4.2.0",
     "jwks-rsa": "3.0.1",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.3",
     "winston": "3.10.0"
   },
   "devDependencies": {
@@ -56,6 +64,7 @@
     "nodemon": "2.0.22",
     "npm-run-all": "4.1.5",
     "ory-prettier-styles": "1.3.0",
+    "postcss-import": "^15.1.0",
     "prettier": "2.8.3",
     "prettier-plugin-packagejson": "2.4.2",
     "ts-node": "10.9.1",

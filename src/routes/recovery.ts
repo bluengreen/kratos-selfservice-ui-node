@@ -50,11 +50,13 @@ export const createRecoveryRoute: RouteCreator =
         )
 
         res.render("recovery", {
+          title: "Recover your account",
           card: UserAuthCard({
             title: "Recover your account",
             flow: flow,
             flowType: "recovery",
             cardImage: logoUrl,
+            className: "ory-idp",
             additionalProps: {
               loginURL: initLoginUrl,
             },

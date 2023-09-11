@@ -74,6 +74,7 @@ export const createRegistrationRoute: RouteCreator =
         }
         res.render("registration", {
           nodes: flow.ui.nodes,
+          title: "Register an account",
           webAuthnHandler: filterNodesByGroups({
             nodes: flow.ui.nodes,
             groups: ["webauthn"],
@@ -97,6 +98,7 @@ export const createRegistrationRoute: RouteCreator =
             }),
             flowType: "registration",
             cardImage: logoUrl,
+            className: "ory-idp",
             additionalProps: {
               loginURL: getUrlForFlow(
                 kratosBrowserUrl,
